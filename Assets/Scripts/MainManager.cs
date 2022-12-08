@@ -53,13 +53,6 @@ public class MainManager : MonoBehaviour
                 Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
             }
         }
-        else if (m_GameOver)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-        }
     }
 
     void AddPoint(int point)
@@ -70,6 +63,8 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (m_GameOver) return;
+
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
